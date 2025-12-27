@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_GET_CALENDAR",
+  "description": "Retrieves a specific Google Calendar, identified by `calendar_id`, to which the authenticated user has access.",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_GET_CALENDAR.md"
+}

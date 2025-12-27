@@ -1,0 +1,172 @@
+{
+  "id": "102019b5ce67409741eb8b221a893ac1d09",
+  "version": "102019b5ff7ffb3702a8d716f62d21a3db0",
+  "schema": {
+    "name": "body_protocol_workout",
+    "description": "Tracks workout completion for the body protocol component of the program",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for each workout record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Contains personal fitness activity data"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "user_id",
+        "description": "Foreign key reference to the user profile",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Links to user's personal data"
+        }
+      },
+      {
+        "name": "workout_date",
+        "description": "Date of the workout in timestamp unix string format",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal fitness activity timeline"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "phase",
+        "description": "Phase number of the workout program (1-3)",
+        "type": 2,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Workout program phase tracking"
+        },
+        "minimum": 1,
+        "maximum": 3,
+        "numeric": "int"
+      },
+      {
+        "name": "completed",
+        "description": "Whether the workout was completed on this date",
+        "type": 3,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal workout completion tracking"
+        }
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true
+      },
+      {
+        "fields": [
+          "data_creator"
+        ]
+      },
+      {
+        "fields": [
+          "data_updater"
+        ]
+      },
+      {
+        "fields": [
+          "user_id"
+        ]
+      },
+      {
+        "fields": [
+          "workout_date"
+        ],
+        "order": true
+      },
+      {
+        "fields": [
+          "user_id",
+          "workout_date"
+        ],
+        "order": true
+      },
+      {
+        "fields": [
+          "phase"
+        ]
+      },
+      {
+        "fields": [
+          "phase",
+          "user_id"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "referencing_fields": [
+          "user_id"
+        ],
+        "referenced_entity": {
+          "name": "user_profile"
+        },
+        "referenced_fields": [
+          "user_id"
+        ],
+        "cascade": true
+      }
+    ]
+  },
+  "task": {
+    "id": "694fdd1627bf6305174669ec",
+    "root": "694f132f5296c90e87490c67",
+    "project": "694f132f5296c90e87490c66",
+    "user": "58f133e0-60c1-70b4-2aa1-61c084d04f28"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_FIND_FREE_SLOTS",
+  "description": "Finds both free and busy time slots in Google Calendars for specified calendars within a defined time range (defaults to the current day UTC if `time_min`/`time_max` are omitted). Returns busy intervals enriched with event details and calculates free slots by finding gaps between busy periods; `time_min` must precede `time_max` if both are provided. This action retrieves free and busy time slots for the specified calendars over a given time period. It analyzes the busy intervals from the calendars and provides calculated free slots based on the gaps in the busy periods.",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_FIND_FREE_SLOTS.md"
+}

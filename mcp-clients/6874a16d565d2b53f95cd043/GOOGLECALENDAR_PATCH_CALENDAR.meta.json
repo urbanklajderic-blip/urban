@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_PATCH_CALENDAR",
+  "description": "Partially updates (PATCHes) an existing Google Calendar, modifying only the fields provided; `summary` is mandatory and cannot be an empty string, and an empty string for `description` or `location` clears them.",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_PATCH_CALENDAR.md"
+}

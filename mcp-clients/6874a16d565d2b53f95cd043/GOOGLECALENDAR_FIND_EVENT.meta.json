@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_FIND_EVENT",
+  "description": "Finds events in a specified Google Calendar using text query, time ranges (event start/end, last modification), and event types; ensure `timeMin` is not chronologically after `timeMax` if both are provided.",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_FIND_EVENT.md"
+}

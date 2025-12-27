@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_LIST_CALENDARS",
+  "description": "Retrieves a paginated list of calendars from the user's calendar list, with optional filtering and sync capabilities.",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_LIST_CALENDARS.md"
+}

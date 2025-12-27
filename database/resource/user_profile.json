@@ -1,0 +1,161 @@
+{
+  "id": "102019b5ce6740976a6803a36d9abfaa04e",
+  "version": "102019b5ff7ffb3702a8d716f62d21a3db0",
+  "schema": {
+    "name": "user_profile",
+    "description": "Core user identity and program information for the 12-week personal development program",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for each user profile record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Contains personal identity information and program participation data"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "user_id",
+        "description": "Unique identifier for the user participating in the program",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Links to user account and personal program data"
+        }
+      },
+      {
+        "name": "core_identity_statement",
+        "description": "Large text field containing the user's core identity statement for the transformation program",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Highly personal identity and self-perception information"
+        },
+        "taxonomy": {
+          "category": "Personal Development",
+          "subject": "Identity transformation goals and statements"
+        }
+      },
+      {
+        "name": "program_start_date",
+        "description": "Date when the user started the 12-week program in timestamp unix string format",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Program participation timeline information"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "current_week",
+        "description": "Current week number in the program (1-12)",
+        "type": 2,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Tracks user's current progress in the program"
+        },
+        "minimum": 1,
+        "maximum": 12,
+        "numeric": "int"
+      },
+      {
+        "name": "current_phase",
+        "description": "Current phase number in the program (1-3)",
+        "type": 2,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Tracks user's current program phase"
+        },
+        "minimum": 1,
+        "maximum": 3,
+        "numeric": "int"
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true
+      },
+      {
+        "fields": [
+          "data_creator"
+        ]
+      },
+      {
+        "fields": [
+          "data_updater"
+        ]
+      },
+      {
+        "fields": [
+          "user_id"
+        ],
+        "unique": true
+      },
+      {
+        "fields": [
+          "current_week"
+        ]
+      },
+      {
+        "fields": [
+          "current_phase"
+        ]
+      }
+    ]
+  },
+  "task": {
+    "id": "694fdd1627bf6305174669ec",
+    "root": "694f132f5296c90e87490c67",
+    "project": "694f132f5296c90e87490c66",
+    "user": "58f133e0-60c1-70b4-2aa1-61c084d04f28"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

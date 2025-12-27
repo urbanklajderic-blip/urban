@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:686de4616fd1cae1afbb55b9",
+  "name": "NOTION_CREATE_NOTION_PAGE",
+  "description": "Creates a new empty page in a Notion workspace under a specified parent page or database. PREREQUISITES: - Parent page/database must exist and be accessible in your Notion workspace - Use search_pages or list_databases first to obtain valid parent IDs LIMITATIONS: - Cannot create root-level pages (must have a parent) - May encounter conflicts if creating pages too quickly - Title-based parent search is less reliable than using UUIDs",
+  "docPath": "src/sdk/mcp-clients/686de4616fd1cae1afbb55b9/NOTION_CREATE_NOTION_PAGE.md"
+}

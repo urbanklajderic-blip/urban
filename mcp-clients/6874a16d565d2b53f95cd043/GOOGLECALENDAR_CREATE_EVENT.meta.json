@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:6874a16d565d2b53f95cd043",
+  "name": "GOOGLECALENDAR_CREATE_EVENT",
+  "description": "Create a Google Calendar event using `start_datetime` plus `event_duration_hour` and `event_duration_minutes` fields to derive the end time. Requires calendar write access. The organizer is added as an attendee unless `exclude_organizer` is True. By default, attempts to create a Google Meet link for the event (create_meeting_room defaults to True). Workspace accounts will receive a Meet link, while personal Gmail accounts will gracefully fallback to creating an event without a Meet link when conference creation fails. Set create_meeting_room to False to explicitly skip Meet link creation. Example request to create event for 1 hour 30 minutes: { \"calendar_id\": \"primary\", \"start_datetime\": \"2025-01-16T13:00:00\", \"timezone\": \"America/New_York\", \"event_duration_hour\": 1, \"event_duration_minutes\": 30, \"summary\": \"Client sync\", \"attendees\": [{\"email\": \"guest@example.com\"}] }",
+  "docPath": "src/sdk/mcp-clients/6874a16d565d2b53f95cd043/GOOGLECALENDAR_CREATE_EVENT.md"
+}
