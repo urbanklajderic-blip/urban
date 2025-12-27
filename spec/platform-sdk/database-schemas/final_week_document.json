@@ -1,0 +1,147 @@
+{
+  "id": "102019b5ce64fc77503bf016ae9c39e64da",
+  "version": "102019b5ce64fc7732ab55e8289026ebecf",
+  "schema": {
+    "name": "final_week_document",
+    "description": "Decommissioning document created in the final week of the program",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for each final week document",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Contains comprehensive personal transformation summary"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "user_id",
+        "description": "Foreign key reference to the user profile",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Links to user's personal data"
+        }
+      },
+      {
+        "name": "document",
+        "description": "Very large text field containing the comprehensive decommissioning document",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Highly sensitive comprehensive personal transformation documentation"
+        },
+        "taxonomy": {
+          "category": "Personal Development",
+          "subject": "Program completion and transformation summary"
+        }
+      },
+      {
+        "name": "completed_date",
+        "description": "Date when the document was completed in timestamp unix string format",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Program completion timeline tracking"
+        },
+        "format": "timestamp"
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true
+      },
+      {
+        "fields": [
+          "data_creator"
+        ]
+      },
+      {
+        "fields": [
+          "data_updater"
+        ]
+      },
+      {
+        "fields": [
+          "user_id"
+        ],
+        "unique": true
+      },
+      {
+        "fields": [
+          "completed_date"
+        ],
+        "order": true
+      }
+    ],
+    "relations": [
+      {
+        "referencing_fields": [
+          "user_id"
+        ],
+        "referenced_entity": {
+          "name": "user_profile"
+        },
+        "referenced_fields": [
+          "user_id"
+        ],
+        "cascade": true
+      }
+    ]
+  },
+  "task": {
+    "id": "694f132f5296c90e87490c67",
+    "root": "694f132f5296c90e87490c67",
+    "project": "694f132f5296c90e87490c66",
+    "user": "58f133e0-60c1-70b4-2aa1-61c084d04f28"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

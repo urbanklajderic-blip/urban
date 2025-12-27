@@ -1,0 +1,175 @@
+{
+  "id": "102019b5ce64fc77445a09dbef81b39ed63",
+  "version": "102019b5ce64fc7732ab55e8289026ebecf",
+  "schema": {
+    "name": "mismatch_audit",
+    "description": "Tracks old behavior patterns that were caught and addressed",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for each mismatch audit record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Contains sensitive personal behavior analysis"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "user_id",
+        "description": "Foreign key reference to the user profile",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Links to user's personal data"
+        }
+      },
+      {
+        "name": "audit_date",
+        "description": "Date of the mismatch audit in timestamp unix string format",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal behavior tracking timeline"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "old_behavior",
+        "description": "Description of the old behavior pattern that was identified",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Sensitive personal behavioral information"
+        },
+        "taxonomy": {
+          "category": "Personal Development",
+          "subject": "Behavior patterns and identity mismatches"
+        }
+      },
+      {
+        "name": "labels",
+        "description": "JSON string array of labels categorizing the behavior, stored as JSON string",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Categorization of personal behaviors"
+        }
+      },
+      {
+        "name": "corrective_action",
+        "description": "Description of the corrective action taken to address the behavior",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Personal improvement strategies and actions"
+        },
+        "taxonomy": {
+          "category": "Personal Development",
+          "subject": "Corrective actions and behavior modification"
+        }
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true
+      },
+      {
+        "fields": [
+          "data_creator"
+        ]
+      },
+      {
+        "fields": [
+          "data_updater"
+        ]
+      },
+      {
+        "fields": [
+          "user_id"
+        ]
+      },
+      {
+        "fields": [
+          "audit_date"
+        ],
+        "order": true
+      },
+      {
+        "fields": [
+          "audit_date",
+          "user_id"
+        ],
+        "order": true
+      }
+    ],
+    "relations": [
+      {
+        "referencing_fields": [
+          "user_id"
+        ],
+        "referenced_entity": {
+          "name": "user_profile"
+        },
+        "referenced_fields": [
+          "user_id"
+        ],
+        "cascade": true
+      }
+    ]
+  },
+  "task": {
+    "id": "694f132f5296c90e87490c67",
+    "root": "694f132f5296c90e87490c67",
+    "project": "694f132f5296c90e87490c66",
+    "user": "58f133e0-60c1-70b4-2aa1-61c084d04f28"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

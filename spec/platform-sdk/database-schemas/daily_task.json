@@ -1,0 +1,176 @@
+{
+  "id": "102019b5ce64fc7740395976617c82bee52",
+  "version": "102019b5ce64fc7732ab55e8289026ebecf",
+  "schema": {
+    "name": "daily_task",
+    "description": "Tracks completion of daily non-negotiable tasks for each user",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for each daily task record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Contains personal daily activity tracking data"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal tracking field for audit purposes"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "user_id",
+        "description": "Foreign key reference to the user profile",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Links to user's personal data"
+        }
+      },
+      {
+        "name": "date",
+        "description": "Date of the daily task tracking in timestamp unix string format",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal activity timeline information"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "future_narrative_completed",
+        "description": "Whether the future narrative task was completed on this date",
+        "type": 3,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal task completion tracking"
+        }
+      },
+      {
+        "name": "mismatch_audit_completed",
+        "description": "Whether the mismatch audit task was completed on this date",
+        "type": 3,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal task completion tracking"
+        }
+      },
+      {
+        "name": "microproof_log_completed",
+        "description": "Whether the microproof log task was completed on this date",
+        "type": 3,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal task completion tracking"
+        }
+      },
+      {
+        "name": "body_protocol_completed",
+        "description": "Whether the body protocol task was completed on this date",
+        "type": 3,
+        "compliance": {
+          "confidentiality": 3,
+          "reason": "Personal task completion tracking"
+        }
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true
+      },
+      {
+        "fields": [
+          "data_creator"
+        ]
+      },
+      {
+        "fields": [
+          "data_updater"
+        ]
+      },
+      {
+        "fields": [
+          "user_id"
+        ]
+      },
+      {
+        "fields": [
+          "date",
+          "user_id"
+        ],
+        "unique": true
+      },
+      {
+        "fields": [
+          "date"
+        ],
+        "order": true
+      }
+    ],
+    "relations": [
+      {
+        "referencing_fields": [
+          "user_id"
+        ],
+        "referenced_entity": {
+          "name": "user_profile"
+        },
+        "referenced_fields": [
+          "user_id"
+        ],
+        "cascade": true
+      }
+    ]
+  },
+  "task": {
+    "id": "694f132f5296c90e87490c67",
+    "root": "694f132f5296c90e87490c67",
+    "project": "694f132f5296c90e87490c66",
+    "user": "58f133e0-60c1-70b4-2aa1-61c084d04f28"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}
